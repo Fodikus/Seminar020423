@@ -41,14 +41,13 @@ Console.WriteLine($"A({x1},{y1},{z1}); B({x2},{y2},{z2}), -> {Math.Round(s, 2)}"
 
 # Задача 23: Напишите программу, которая принимает на вход число (N) и выдаёт таблицу кубов чисел от 1 до N.
 ```
-Console.Clear();
-Console.WriteLine("Введите число a: ");
-int a = Convert.ToInt32(Console.ReadLine());
-Console.WriteLine("Введите число b: ");
-int b = Convert.ToInt32(Console.ReadLine());
-
-if (a > b)
-    Console.WriteLine($"a={a}; b={b} -> max {a} ");
-else
-    Console.WriteLine($"a={a}; b={b} -> max {b} ");
+Console.Clear();  
+Console.WriteLine("Введите число N: ");
+int n = Convert.ToInt32(Console.ReadLine());
+string s = "";
+for (int i = 1; i <= n; i++)
+{
+    s = s + ($"{i * i * i} ");
+}
+Console.WriteLine($"{n} -> {s} ");
 ```
