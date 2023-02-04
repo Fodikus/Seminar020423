@@ -51,3 +51,48 @@ for (int i = 1; i <= n; i++)
 }
 Console.WriteLine($"{n} -> {s} ");
 ```
+
+# Дополнительная задача(https://acmp.ru/asp/do/index.asp?main=task&id_course=1&id_section=5&id_topic=113&id_problem=695)
+```
+Console.Clear();
+Console.WriteLine("Введите количество кустов: ");
+int n = Convert.ToInt32(Console.ReadLine());
+
+while ((n < 3) || (n > 1000))
+{
+    Console.WriteLine($"Вы ошиблись! Количество кустов не должно быть меньше 3-х или больше 1000! \nВведите количество кустов: ");
+    n = Convert.ToInt32(Console.ReadLine());
+}
+int[] numbers = new int[n];
+
+for (int i = 0; i < n; i++)
+{
+    Console.WriteLine($"Введите количество ягод на кусту {i + 1}: ");
+    numbers[i] = Convert.ToInt32(Console.ReadLine());
+}
+
+int max = 0;
+int s1 = 0;
+int s2 = 0;
+int s3 = 0;
+for (int i = 1; i < numbers.Length-1; i++)
+{
+    s1 = numbers[i-1] + numbers[i] + numbers[i+1];
+    if (s1 > max)
+        max = s1;
+    else if (s1 >= 1000)
+        max = 1000;
+    s2 = numbers[numbers.Length-1] + numbers[0] + numbers[i];    
+    if (s2 > max)
+        max = s2;
+    else if (s2 >= 1000)
+        max = 1000;
+    s3 = numbers[numbers.Length-2] + numbers[numbers.Length-1] + numbers[0];    
+    if (s3 > max)
+        max = s3;    
+    else if (s3 >= 1000)
+        max = 1000;
+}
+
+Console.WriteLine($"Максимального числа ягод, которое может собрать за один заход собирающий модуль: {max}");
+```
